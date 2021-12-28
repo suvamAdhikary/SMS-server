@@ -1,0 +1,28 @@
+{
+  "name": "student-management-system-server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon src/server",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/suvamAdhikary/SMS-server.git"
+  },
+  "author": "Suvam Adhikary",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/suvamAdhikary/SMS-server/issues"
+  },
+  "homepage": "https://github.com/suvamAdhikary/SMS-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "express-validator": "^6.14.0",
+    "mongoose": "^6.1.4"
+  }
+}
