@@ -10,6 +10,15 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(express.json());
 
+
+const studentController = require('./controllers/student.controller');
+const contestController = require('./controllers/contest.controller');
+
+
+app.use('/students', studentController);
+app.use('/contests', contestController);
+
+
 app.get('/', async (req, res) => {
 
     try {
