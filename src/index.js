@@ -13,10 +13,12 @@ app.use(express.json());
 
 const studentController = require('./controllers/student.controller');
 const contestController = require('./controllers/contest.controller');
+const adminController = require('./controllers/admin.controller');
 
 
 app.use('/students', studentController);
 app.use('/contests', contestController);
+app.use('/admins', adminController);
 
 
 app.get('/', async (req, res) => {
