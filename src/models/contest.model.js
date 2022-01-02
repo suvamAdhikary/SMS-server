@@ -1,4 +1,4 @@
-const moongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 const reqStringT = {
     type: String,
@@ -21,7 +21,7 @@ const reqNumberF = {
 }
 
 
-const contestSchema = moongoose.Schema({
+const contestSchema = mongoose.Schema({
     title: reqStringT,
     type: reqStringT,
     deadline: reqStringT,
@@ -32,6 +32,6 @@ const contestSchema = moongoose.Schema({
     timestamp: true,
 });
 
-const Contest = moongoose.model("contest", contestSchema);
+const Contest = mongoose.model("contest", contestSchema);
 
 module.exports = Contest;
