@@ -30,6 +30,7 @@ const studentSchema = mongoose.Schema({
     education: reqStringT,
     gender: reqStringF,
     contact: reqStringT,
+    email: reqStringT,
     password: reqStringT,
 }, {
     versionKey: false,
