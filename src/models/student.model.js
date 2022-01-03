@@ -50,8 +50,9 @@ studentSchema.pre('save', function(next) {
 })
 
 
-studentSchema.methods.checkPassword = function(password) {
-    const match = bcrypt.compareSync(password, this.password);
+studentSchema.statics.checkPassword = function(password, hash) {
+    
+    const match = bcrypt.compareSync(password, hash);
 
     return match;
 }

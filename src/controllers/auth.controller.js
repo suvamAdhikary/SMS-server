@@ -74,7 +74,7 @@ const studentLogin = async (req, res, next) => {
 
         if(!user) return res.status(401).json({status: "failed", message: "Your email or password does not match"});
 
-        const match = await Student.checkPassword(req.body.password);
+        const match = await Student.checkPassword(req.body.password, user.password);
 
         if(!match) return res.status(401).json({status: "failed", message: "Your email or password does not match"});
 
