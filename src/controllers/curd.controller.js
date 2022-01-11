@@ -1,5 +1,7 @@
 const { model } = require("mongoose");
 
+const client = require('../configs/redis');
+
 const post = (model) => async (req, res) => {
 
     try {
@@ -16,11 +18,19 @@ const post = (model) => async (req, res) => {
 
 const get = (model) => async (req, res) => {
 
+    const page = +req.query.page || 1;
+    const size = +req.query.limit || 5;
+    const offset = (page - 1) * size;
+
     try {
 
-        const data = await model.find().lean().exec();
+        const data = await model.find({}).skip(offset).limit(size).lean().exec();
 
-        return res.status(200).send({data})
+        const pages = Math.ceil((
+            await model.find({}).countDocuments().lean().exec()
+        )/ size);
+
+        return res.status(200).send({data, pages})
 
     } catch (err) {
 
